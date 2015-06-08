@@ -79,7 +79,7 @@
             // ensure evs_buffer_size_limit corresponds to bufferSizeLimit
             if (this.getArgs && this.bufferSizeLimit) {
 
-                this.getArgs['evs_buffer_size_limit'] = this.bufferSizeLimit;
+                //this.getArgs['evs_buffer_size_limit'] = this.bufferSizeLimit;
             }
 
             // if console is not available, force loggingEnabled to false
