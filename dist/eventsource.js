@@ -44,7 +44,6 @@
             silentTimeout: 300000, // milliseconds
 
             getArgs:{
-                //'evs_buffer_size_limit': 256*1024
             },
 
             xhrHeaders:{
@@ -73,13 +72,6 @@
                 if (option in defaults && options.hasOwnProperty(option)){
                     this[option] = options[option];
                 }
-            }
-
-            // if getArgs option is enabled
-            // ensure evs_buffer_size_limit corresponds to bufferSizeLimit
-            if (this.getArgs && this.bufferSizeLimit) {
-
-                //this.getArgs['evs_buffer_size_limit'] = this.bufferSizeLimit;
             }
 
             // if console is not available, force loggingEnabled to false
