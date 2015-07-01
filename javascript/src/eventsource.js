@@ -39,7 +39,7 @@
 
             interval: 500, // milliseconds
 
-            bufferSizeLimit: 256*1024, // bytes
+            bufferSizeLimit: 1024*1024, // bytes
 
             silentTimeout: 300000, // milliseconds
 
@@ -108,7 +108,7 @@
             catch (e) {
 
                 // in an attempt to silence the errors
-                this.log('There were errors inside the pool try-catch');
+                this.log('An error occured during polling.');
                 this.dispatchEvent('error', { type: 'error', data: e.message });
             }
         },
@@ -128,8 +128,7 @@
 
         cleanup: function() {
 
-            this.log('evs cleaning up')
-
+            this.log('evs cleaning up');
             if (this._pollTimer){
                 clearInterval(this._pollTimer);
                 this._pollTimer = null;
@@ -164,7 +163,7 @@
         close: function () {
 
             this.readyState = this.CLOSED;
-            this.log('Closing connection. readyState: '+this.readyState);
+            this.log('Closing connection.');
             this.cleanup();
         },
 
@@ -185,7 +184,7 @@
                 var buffer = request.getBuffer();
 
                 if (buffer.length > this.bufferSizeLimit) {
-                    this.log('buffer.length > this.bufferSizeLimit');
+                    this.log('buffer length > bufferSizeLimit');
                     this.pollAgain();
                 }
 
