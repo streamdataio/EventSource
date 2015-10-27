@@ -43,6 +43,8 @@
 
             silentTimeout: 300000, // milliseconds
 
+            retryInterval: 3000, // milliseconds
+
             getArgs:{
             },
 
@@ -407,13 +409,7 @@
                         evs._onxhrdata();
                     }
                     else {
-                        request._failed = true;
-                        evs.readyState = evs.CLOSED;
-                        evs.dispatchEvent('error', {
-                            type: 'error',
-                            data: "The server responded with "+request.status
-                        });
-                        evs.close();
+                        evs.pollAgain(evs.retryInterval);
                     }
                 }
             };
