@@ -17,7 +17,7 @@
             throw new SyntaxError('Not enough arguments');
         }
 
-        this.URL = url;
+        this.url = url;
         this.setOptions(options);
         var evs = this;
         setTimeout(function(){evs.poll()}, 0);
@@ -452,7 +452,7 @@
             request.onprogress = function () {
             };
 
-            request.open('GET', evs.urlWithParams(evs.URL, evs.getArgs), true);
+            request.open('GET', evs.urlWithParams(evs.url, evs.getArgs), true);
 
             var headers = evs.xhrHeaders; // maybe null
             for (var header in headers) {
@@ -573,7 +573,7 @@
             }
             // send the request
 
-            request.open('GET', evs.urlWithParams(evs.URL,reqGetArgs));
+            request.open('GET', evs.urlWithParams(evs.url,reqGetArgs));
             request.send();
         };
 
