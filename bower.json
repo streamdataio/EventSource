@@ -1,6 +1,6 @@
 {
   "name": "eventsource-polyfill",
-  "main": ["javascript/src/eventsource.js", "eventsource.min.js"],
+  "main": "dist/eventsource.js",
   "homepage": "https://github.com/streamdataio/EventSource",
   "authors": [
     "Motwin"
